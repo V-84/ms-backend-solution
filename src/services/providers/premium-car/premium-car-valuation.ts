@@ -7,7 +7,7 @@ import { logResponse } from '../common/provider-logger';
 
 export async function fetchValuationFromPremiumCarValuation(vrm: string): Promise<ValuationResult> {
   const PROVIDER_NAME = 'PremiumCar';
-  const baseURL = 'https://run.mocky.io/v3/cda925b1-c3d9-4c2e-af2e-d65f45310927-i';
+  const baseURL = 'https://run.mocky.io/v3/cda925b1-c3d9-4c2e-af2e-d65f45310927';
   const start = Date.now();
   try {
     const response = await axios.get(

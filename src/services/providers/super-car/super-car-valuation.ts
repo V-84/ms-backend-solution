@@ -8,7 +8,7 @@ import { logResponse } from '../common/provider-logger';
 
 export async function fetchValuationFromSuperCarValuation(data: SuperCarRequest): Promise<ValuationResult>{
     const { vrm, mileage } = data;
-    const baseURL = 'https://run.mocky.io/v3/62aa0630-5aaa-4665-bc71-875941d6f482-0';
+    const baseURL = 'https://run.mocky.io/v3/62aa0630-5aaa-4665-bc71-875941d6f482';
     const start = Date.now();
     const PROVIDER_NAME = 'SuperCar';
 
