@@ -1,4 +1,4 @@
-import axios, { AxiosError } from 'axios';
+import axios from 'axios';
 import { XMLParser } from 'fast-xml-parser'
 import { VehicleValuation } from '@app/models/vehicle-valuation';
 import { PremiumCarValuationResponse } from './types/premium-car-valuation-response';
@@ -7,7 +7,7 @@ import { logResponse } from '../common/provider-logger';
 
 export async function fetchValuationFromPremiumCarValuation(vrm: string): Promise<ValuationResult> {
   const PROVIDER_NAME = 'PremiumCar';
-  const baseURL = 'https://run.mocky.io/v3/cda925b1-c3d9-4c2e-af2e-d65f45310927';
+  const baseURL = 'https://run.mocky.io/v3/463eaf0e-3b29-4443-94db-d3ef175c6767';
   const start = Date.now();
   try {
     const response = await axios.get(
@@ -50,14 +50,13 @@ export async function fetchValuationFromPremiumCarValuation(vrm: string): Promis
     return valuation;
   } catch (error: unknown) {
     if (axios.isAxiosError(error)) {
-      const err = error as AxiosError;
       await logResponse({
         requestDate: new Date(),
         requestDuration: Date.now() - start,
         requestUrl: `${baseURL}/valueCar?=${vrm}`,
-        responseCode: err.response?.status!,
-        errorCode: err.code,
-        errorMessage: err.message,
+        responseCode: error.response?.status,
+        errorCode: error.code,
+        errorMessage: error.message,
         vrm,
         providerName: PROVIDER_NAME,
       });

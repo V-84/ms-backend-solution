@@ -1,6 +1,6 @@
 import Joi from 'joi';
 
-export function validateSpec(schema: Joi.ObjectSchema, data: any) {
+export function validateSpec(schema: Joi.ObjectSchema, data: unknown) {
       const { error, value } = schema.validate(data, {
         allowUnknown: true,
         stripUnknown: true,

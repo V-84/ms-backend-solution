@@ -3,7 +3,7 @@ export type ProviderLoggerRequest = {
   providerName: string;
   requestUrl: string;
   requestDuration: number;
-  responseCode: number;
+  responseCode?: number;
   requestDate: Date;
   errorMessage?: string;
   errorCode?: string;
